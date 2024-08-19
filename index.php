@@ -1,39 +1,127 @@
 <?php
-include "layout/header.php";
+// initiate the session
+session_start();
+
+$authenticated = false;
+if (isset($_SESSION["email"])) {
+  $authenticated = true;
+}
 ?>
 
- 
-<!--Carousel-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Faith Community Pathways</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mansalva|Roboto&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="../images/logo-white.jpg">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <!-- Header Section -->
+  <div class="container-fluid bg-white sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom shadow-sm">
+      <div class="container">
+        <a href="index.php" class="navbar-brand">
+          <img style="width: 50px; height: 50px" src="/images/logo.png" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+            <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-item nav-link">Contact</a></li>
+            <li class="nav-item"><a href="single.html" class="nav-item nav-link">Blog</a></li>
+          </ul>
+         <div class="col-md-6 text-md-right">
+            <a href="https://www.facebook.com/people/Faith-community-pathway/61558574967566/?mibextid=LQQJ4d" class="btn btn-primary btn-sm rounded-circle">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="btn btn-secondary btn-sm rounded-circle">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="btn btn-success btn-sm rounded-circle">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="#" class="btn btn-danger btn-sm rounded-circle">
+                <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+
+
+          <?php if ($authenticated): ?>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          <?php else: ?>
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="register.php" class="btn btn-outline-success me-2">Register</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="nav-item"><a href="login.php" class="btn btn-success">Login</a></li>
+            </ul>
+          <?php endif; ?>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+<!-- Carousel -->
+
 <div class="owl-carousel-wrapper">
-  <div class="box-92819">
-    <h1 class="text-white mb-3">Join us in the movement to empower the youth!</h1>
-    <p>
-      <a href="./register.php" class="btn btn-success py-2 px-4 rounded-10">Join us Today</a>
-      <a href="#form" class="btn btn-outline-secondary btn-outline-success px-3">Donate Now</a>
-    </p>
-  </div>
 
-  <div class="owl-carousel owl-1">
-    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_1.jpg');"></div>
-    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg');"></div>
-    <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_3.jpg');"></div>
-  </div>
-<script>
-  $(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-      items: 1,
-      loop: true,
-      margin: 10,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true,
-      dots: false  // This line disables the dots/pagination
-    });
-  });
-</script>
-</div>
+      
 
-    
+      <div class="box-92819">
+        <h1 class="text-white mb-3">Join us in the Movement To Empower the Youth</h1>
+        <p>
+          <a href="./register.php" class="btn btn-success py-2 px-4 rounded-10">Join us Today</a>
+          <a href="#form" class="btn btn-outline-secondary btn-outline-success px-3">Donate Now</a>
+        </p>
+      </div>
+
+      <div class="owl-carousel owl-1 ">
+        <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_1.jpg');"></div>
+        <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_2.jpg');"></div>
+        <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_3.jpg');"></div>
+        
+      </div>
+    </div>
+
+
+
 <!--1st collection-->
 <div class="container">
       <div class="feature-29192-wrap d-md-flex" style="margin-top: -20px; position: relative; z-index: 2;">
@@ -403,6 +491,104 @@ include "layout/header.php";
 
 
 
-<?php
-include "layout/footer.php";
-?>
+
+<!--Just a Card-->
+<div class="site-section">
+      <div class="container">
+        
+            <div class="d-md-flex cta-20101 align-self-center bg-light p-5">
+              <div class=""><h2 class="text-cursive">Conecting people, Transforming communities</h2></div>
+              <div class="ml-auto"><a href="./register.php" class="btn btn-success">Join us Today</a></div>
+            </div>
+        
+      </div>
+    </div>
+  
+<!--Footer-->    
+    <footer class="site-footer bg-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-lg-4">
+                <img class="d-block mx-auto mb-4" src="images/logo.png" alt="logo" width="250" height="250">
+              </div>
+              <div class="col-md-4 ml-auto">
+                <h2 class="footer-heading mb-4">Features</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto">
+
+            <div class="mb-5">
+              <h2 class="footer-heading mb-4">Subscribe to Newsletter</h2>
+              <form action="#" method="post" class="footer-suscribe-form">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control rounded-0 border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-success text-white" type="button" id="button-addon2">Subscribe</button>
+                  </div>
+                  
+            </div>
+
+
+            <h2 class="footer-heading mb-4">Follow Us</h2>
+
+ <div class="col-md-6 text-md-right">
+            <a href="https://www.facebook.com/people/Faith-community-pathway/61558574967566/?mibextid=LQQJ4d" class="btn btn-primary btn-sm rounded-circle">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="btn btn-secondary btn-sm rounded-circle">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="btn btn-success btn-sm rounded-circle">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="#" class="btn btn-danger btn-sm rounded-circle">
+                <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="pt-5">
+              <p>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Designed and Coded with <i class="icon-heart text-danger" aria-hidden="true"></i> by Crimson +254790802553</a>
+            </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+ 
+    <!--Updated CDNs-->
+    
+   <!-- JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
